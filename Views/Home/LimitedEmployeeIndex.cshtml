@@ -1,0 +1,102 @@
+﻿@model FinalProRere.ViewModels.MultipleTicketsModel
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+</head>
+@Styles.Render("~/Content/css")
+
+
+
+<body class="mainbody">
+    <div id="heading">
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>  @Html.Partial("_LoginPartial")
+    </div>
+
+    <div id="tablediv">
+        <!---->
+        <table id="tickets" class="stripe table table-bordered table-hover" border="1">
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>AssignedTo</th>
+                    <th>Date Created</th>
+                    <th>Resolved</th>
+
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+</body>
+
+
+
+
+</html>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+<script>
+    $(document).ready(function () {
+
+
+
+    window.addEventListener('load', loadData());
+
+
+
+    function loadData() {
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/api/tickets');
+
+        xhr.onload = function () {
+
+            var ticket = JSON.parse(this.response);
+
+            $('#tickets').DataTable({
+                data: ticket,
+                paging: false,
+                "columns": [
+                    {
+                        "data": "id",
+
+                        "render": function (data, type, ticket) {
+
+                            var myUrl = '@Url.Action("Viewticket", "Home")?ticketid='+data;
+                            return '<a href=\"' + myUrl + '\">'+data+'</a>';
+                        }
+                    },
+                    {
+                        "data": "applicationUser.userName",
+
+                    },
+                    {
+                        "data": "date",
+
+                    },
+                    {
+                        "data": "resolved",
+
+                    }
+
+
+
+                ]
+            });
+        }
+
+        xhr.send();
+    };
+
+
+    });
+</script>

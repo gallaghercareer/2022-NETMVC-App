@@ -1,0 +1,58 @@
+﻿@model FinalProRere.ViewModels.AddTicketViewModel
+
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+
+</head>
+<body>
+
+    <div id="heading">
+        <a href="/home/Employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a> @Html.Partial("_LoginPartial")
+    </div>
+    @using (@Html.BeginForm("AddTicket", "Home", FormMethod.Post))
+    {
+<table id="viewtickettable" class="table table-bordered table-hover" border="1">
+    <thead>
+        <tr>
+            <th>ADD TICKET</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        <tr>
+            <td>
+                <label for="Ticket_ApplicationUser">Assign To:</label>
+                @Html.DropDownListFor(t => t.Ticket.ApplicationUserId, Model.ApplicationUsers)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label style=" display: block;" for="Ticket_ApplicationUser">Instructions:</label>
+
+                @Html.TextAreaFor(t => t.Ticket.Instructions)
+                @Html.ValidationMessageFor(t => t.Ticket.Instructions,"", new { @class = "text-danger", style="display:block;" })
+            </td>
+        </tr>
+        <tr> <td> <input value="Submit" type="submit" class="btn btn-primary "> </td></tr>
+       
+    </tbody>
+   
+</table>
+       
+    }
+
+
+
+
+</body>
+</html>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

@@ -1,0 +1,34 @@
+﻿@model FinalProRere.ViewModels.MultipleTicketsModel
+
+@Styles.Render("~/Content/css")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+</head>
+<body>
+    <div id="heading">
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>@Html.Partial("_LoginPartial")
+    </div>
+
+
+
+    @using (@Html.BeginForm("ViewTicket", "Home", FormMethod.Post, new { style = "width:50%; margin:auto;" }))
+    {
+
+        <h2>Comment</h2>
+        <label for="commentTextBox"></label>
+        <textarea  rows="10" style="width: 500px;" name="commentTextBox"> </textarea>
+
+
+        <button action="submit" class="btn btn-primary" style="display:block; margin-top: 5px;">Submit</button>
+
+        <input type="hidden" name="ticketId" value="@Model.Ticket.Id" />
+
+
+    }
+
+</body>
+</html>

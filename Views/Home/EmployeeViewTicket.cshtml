@@ -1,0 +1,82 @@
+﻿@model FinalProRere.ViewModels.MultipleTicketsModel
+
+@Styles.Render("~/Content/css")
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Tracker</title>
+</head>
+
+<body>
+
+    <div id="heading">
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>@Html.Partial("_LoginPartial")
+    </div>
+    <div id="viewtickettable">
+        <table class="table table-bordered table-hover" border="1">
+            <thead>
+                <tr>
+                    <th>TICKET TRACKING NUMBER: @Model.Ticket.Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Ticket Resolved: @Model.Ticket.Resolved <form method="post" action="/Home/ViewTicket">
+                            <select name="Resolved" onchange="this.form.submit()">
+                                <option disabled selected> -- select an option -- </option>
+                                <option value="true">Resolve</option>
+                                <option value="false">Unresolve</option>
+                            </select>
+                            <input type="hidden" name="ticketId" value="@Model.Ticket.Id" />
+                        </form>
+                    </td>
+                </tr>
+                <tr><td>Assigned To: @Model.Ticket.ApplicationUser.UserName</td></tr>
+                <tr><td><b></b>Instructions:@Model.Ticket.Instructions</td></tr>
+                
+            </tbody>
+
+        </table>
+    </div>
+    @{
+
+
+        if (Model.Comments.Count > 0)
+        {
+            <table id="commenttable" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <tr>
+                            <td>
+                                @comment.name :  @comment.textBox
+
+                            </td>
+
+                        </tr>
+                    }
+
+
+
+
+
+
+                </tbody>
+            </table>
+        }
+    }
+    @Html.ActionLink("New Comment", "NewCommentView", new { id = Model.Ticket.Id }, new { @class = "btn btn-primary", id = "viewticketid" })
+
+    <!-- <button id="viewticketid"></button> -->
+</body>
+</html>
