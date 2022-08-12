@@ -10,11 +10,15 @@
     <title>Issue Tracker</title>
 </head>
 
+<!--EMPLOYEE ONLY UNIQUE TICKET VIEW-->
 <body>
 
+    <!--HEADER-->
     <div id="heading">
         <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>@Html.Partial("_LoginPartial")
     </div>
+
+    <!--TABLE SHOWING UNIQUE TICKET DATA-->
     <div id="viewtickettable">
         <table class="table table-bordered table-hover" border="1">
             <thead>
@@ -44,7 +48,7 @@
     </div>
     @{
 
-
+    <!--COMMENTS-->
         if (Model.Comments.Count > 0)
         {
             <table id="commenttable" class="table table-bordered table-hover">

@@ -17,7 +17,7 @@ namespace FinalProReRe.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-
+        
         private ApplicationDbContext _context;
 
       
@@ -32,12 +32,10 @@ namespace FinalProReRe.Controllers
 
         public ActionResult Index()
         {
-
-         
-
             return View();
         }
-      
+
+        #region Homepage view of all tickets
         public ActionResult EmployeeIndex()
         {
             var tickets = _context.Tickets.ToList();
@@ -52,8 +50,9 @@ namespace FinalProReRe.Controllers
             }else
             return View(viewModel);
         }
-
+        #endregion
         
+        #region Manager has clicked Add Ticket Button  
         [HttpPost]
         public ActionResult AddTicket(Ticket ticket)
         {
@@ -82,6 +81,10 @@ namespace FinalProReRe.Controllers
                 return View("AddTicketForm", viewModel);
             }
         }
+        #endregion
+
+
+        #region Manager wants to add a Ticket
         [Authorize(Roles ="CanManageTickets")]
         public ActionResult AddTicketForm()
         {
@@ -100,12 +103,14 @@ namespace FinalProReRe.Controllers
 
             return View(viewModel);
         }
-
+        #endregion
         
+
+        #region Employee/Manager Wants to View a unique Ticket
         public ActionResult ViewTicket(int ticketId, string commentTextBox, string Resolved, string Username)
         {
            
-            //resolve ticket 
+            //if manager resolves a ticket 
             if (Resolved == "true")
             {
                 var resolved_ticket = _context.Tickets.Single(t => t.Id == ticketId);
@@ -123,7 +128,7 @@ namespace FinalProReRe.Controllers
             };
           
             
-           // create new comment if it's recieved
+           //if manager or employee adds a comment
             if (commentTextBox != null)
             {
 
@@ -145,9 +150,7 @@ namespace FinalProReRe.Controllers
             //contains ticket Id
             var view_ticket = _context.Tickets.Single(t => t.Id == ticketId);
 
-            //contains 0 or more comments for the ticket
-
-            //.include(applicationuser!)
+          
             var comments = _context.Comments.Where(c => c.Ticket.Id == ticketId).Include(c=>c.ApplicationUser).ToList();
 
           
@@ -163,9 +166,13 @@ namespace FinalProReRe.Controllers
             {
                 return View("EmployeeViewTicket", viewModel);
             }else
+                
             return View(viewModel);
         }
 
+        #endregion
+
+        #region Employee/Manager wants to Create a new comment
         public ActionResult NewCommentView(int Id)
         {
 
@@ -179,7 +186,9 @@ namespace FinalProReRe.Controllers
            
                 return View(viewModel);
         }
+        #endregion
 
+        #region manager wants to resolve/delete a ticket
         [Authorize(Roles ="CanManageTickets")]
         public ActionResult DeleteTicket(int ticketId)
         {
@@ -192,8 +201,9 @@ namespace FinalProReRe.Controllers
             return RedirectToAction("EmployeeIndex");
         }
 
-       
-    
+        #endregion
+
 
     }
+
 }

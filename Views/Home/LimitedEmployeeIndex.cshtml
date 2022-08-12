@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
+
+<!--EMPLOYEE ONLY HOMEPAGE-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +13,14 @@
 </head>
 @Styles.Render("~/Content/css")
 
-
-
+<!--HEADER-->
 <body class="mainbody">
     <div id="heading">
-        <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>  @Html.Partial("_LoginPartial")
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing">Contact Me</a> <a target="_blank" href="https://portfolio-22-jpg.herokuapp.com/#home">Portfolio</a>  @Html.Partial("_LoginPartial")
     </div>
 
+<!--TABLE-->
     <div id="tablediv">
-        <!---->
         <table id="tickets" class="stripe table table-bordered table-hover" border="1">
             <thead>
                 <tr>
@@ -44,6 +46,7 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 
+<!--JQUERY DATATABLE-->
 <script>
     $(document).ready(function () {
 

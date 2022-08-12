@@ -11,14 +11,12 @@ namespace FinalProReRe.Models
         public int Id { get; set; }
 
         [ForeignKey("ApplicationUser")]
-        //[Column(Order = 0)]
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
         public Ticket Ticket { get; set; }
 
         [ForeignKey("Ticket")]
-        //[Column(Order = 1)]
         public int TicketId { get; set; }
 
         public string textBox { get; set; }

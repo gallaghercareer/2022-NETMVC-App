@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
+<!--MANAGER ONLY UNIQUE TICKET VIEW-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +13,12 @@
 </head>
 
 <body>
-
+    <!--HEADER-->
     <div id="heading">
-        <a href="/home/employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a>@Html.Partial("_LoginPartial")
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing">Contact Me</a> <a target="_blank" href="https://portfolio-22-jpg.herokuapp.com/#home">Portfolio</a>@Html.Partial("_LoginPartial")
     </div>
+
+    <!--TABLE SHOWING UNIQUE TICKET DATA-->
     <div id="viewtickettable" >
         <table class="table table-bordered table-hover" border="1">
             <thead>
@@ -44,6 +48,7 @@
     </div>
     @{ 
 
+<!--COMMENTS-->
 
         if (Model.Comments.Count > 0)
         {
@@ -77,6 +82,5 @@
         }   
                 @Html.ActionLink("New Comment", "NewCommentView", new { id = Model.Ticket.Id }, new {@class= "btn btn-primary", id= "viewticketid" }) 
                
-<!-- <button id="viewticketid"></button> -->
 </body>
 </html>

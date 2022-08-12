@@ -10,10 +10,12 @@
 
 </head>
 <body>
-
+    <!--HEADER-->
     <div id="heading">
-        <a href="/home/Employeeindex">Home</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#contact">Contact Me</a> <a target="_blank" href="http://www.code-gate.com.s3-website.us-east-2.amazonaws.com/#page-top">Portfolio</a> @Html.Partial("_LoginPartial")
+        <a href="/home/Employeeindex">Home</a> <a target="_blank" href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing">Contact Me</a> <a target="_blank" href="https://portfolio-22-jpg.herokuapp.com/#home">Portfolio</a> @Html.Partial("_LoginPartial")
     </div>
+    
+    <!--ADD TICKET FORM-->
     @using (@Html.BeginForm("AddTicket", "Home", FormMethod.Post))
     {
 <table id="viewtickettable" class="table table-bordered table-hover" border="1">
@@ -47,9 +49,6 @@
 </table>
        
     }
-
-
-
 
 </body>
 </html>
