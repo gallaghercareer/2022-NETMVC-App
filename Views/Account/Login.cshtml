@@ -26,7 +26,7 @@
 
     <div id="heading">
 
-        <a href="/home/employeeindex">Home</a> <a target="_blank" href="https://portfolio-22-jpg.herokuapp.com/login">Contact Me</a> <a target="_blank" href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?usp=sharing">Portfolio</a>
+        <a href="/home/employeeindex">Home</a> <a target="_blank" href="https://docs.google.com/document/d/1eh-c7nNmuU6CRv5ZS2dTp5LpFqJEkoIwypHCYVvm_4I/edit?tab=t.0">Contact Me</a> <a target="_blank" href="https://gallaghercareer.github.io/portfolio-2022">Portfolio</a>
     </div>
     <div style="align-content: center; display:flex; flex-direction:column; align-items:center;">
        
@@ -40,21 +40,22 @@
     <div>
 
         @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-        <i style="font-size: 1.1rem;"title="Username=Employee@hiring.com, Password=Employeepass123!" class='fa fa-info-circle'></i>
+        <i style="font-size: 1.1rem;" title="Username=Employee@hiring.com, Password=Employeepass123!" class='fa fa-info-circle'></i>
 
         @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", Value = "Admin@hiring.com" })
         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        <div style="font-size: 1rem;color:red">Username:Employee@hiring.com, Admin@hiring.com</div> 
 
     </div>
 
 
-            <div>
-                @Html.LabelFor(m => m.Password, new { @class = "control-label" })
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", value = "Adminpass123!" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-
-                <input id="buttonadd" type="submit" value="Log in" class="btn btn-default" style="width:100%; margin-top:5px;" />
-            </div>
+    <div>
+        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", value = "Adminpass123!" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        <div style="font-size: 1rem;color:red">Password:Employeepass123!, Adminpass123!</div>
+            <input id="buttonadd" type="submit" value="Log in" class="btn btn-default" style="width:100%; margin-top:5px;" />
+        </div>
         }
     </div>
 </body>

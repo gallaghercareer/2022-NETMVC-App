@@ -216,10 +216,6 @@
     <Compile Include="Migrations\202008282135387_addCommentTable.designer.cs">
       <DependentUpon>202008282135387_addCommentTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008282155061_seedDB.cs" />
-    <Compile Include="Migrations\202008282155061_seedDB.designer.cs">
-      <DependentUpon>202008282155061_seedDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202008282220143_changeCommentTickets.cs" />
     <Compile Include="Migrations\202008282220143_changeCommentTickets.designer.cs">
       <DependentUpon>202008282220143_changeCommentTickets.cs</DependentUpon>
@@ -446,6 +442,7 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <None Include="Properties\PublishProfiles\FinalProReRe20250306153225 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -599,9 +596,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008282135387_addCommentTable.resx">
       <DependentUpon>202008282135387_addCommentTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008282155061_seedDB.resx">
-      <DependentUpon>202008282155061_seedDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008282220143_changeCommentTickets.resx">
       <DependentUpon>202008282220143_changeCommentTickets.cs</DependentUpon>
