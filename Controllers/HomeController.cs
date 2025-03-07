@@ -32,7 +32,7 @@ namespace FinalProReRe.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View("EmployeeIndex"); 
         }
 
         #region Homepage view of all tickets
