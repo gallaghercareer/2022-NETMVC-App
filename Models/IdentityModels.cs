@@ -18,6 +18,7 @@ namespace FinalProReRe.Models
         }
     }
 
+    [DbConfigurationType(typeof(MyDbConfiguration))]
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Ticket> Tickets { get; set; }
